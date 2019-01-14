@@ -1,0 +1,23 @@
+{
+  "name": "rest-backend",
+  "version": "1.0.0",
+  "description": "Just following a rest api tutorial for a futher project",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/042A/rest-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/042A/rest-backend/issues"
+  },
+  "homepage": "https://github.com/042A/rest-backend#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
