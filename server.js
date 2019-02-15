@@ -1,11 +1,25 @@
-var express = require('express');
-var app = express();
-
-app.get('/', function (req, res) {
-  res.send('Hello World!');
+const express = require('express');
+const bodyParser = require('body-parser');
+const Nexmo = require('nexmo');
+const nexmo = new Nexmo({
+  apiKey: '89b156df',
+  apiSecret: 'lr91eIDMgVsGNl7j'
 });
+const app = express();
 
-// use port 3000 unless there exists a preconfigured port
-var port = process.env.port || 3000;
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.listen(port);
+
+const server = app.listen(3000);
+
+nexmo.message.sendSms(
+    'test', '46739683434', 'yo',
+      (err, responseData) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.dir(responseData);
+        }
+      }
+   );
