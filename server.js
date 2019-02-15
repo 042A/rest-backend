@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const server = app.listen(3000);
 
 nexmo.message.sendSms(
-    'test', '46739683434', 'yo',
+    '042A', '46739683434', 'Live web test',
       (err, responseData) => {
         if (err) {
           console.log(err);
