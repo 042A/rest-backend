@@ -1,42 +1,11 @@
-const express = require('express');
-const app = express();
-const cors = require('cors')
+var express = require('express');
+var port = process.env.PORT || 3000;
+var app = express();
 
-app.use(cors())
-
-
-// use body parser
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.route('/api/cats').post((req, res) => {
-  res.send(201, req.body);
+app.get('/', function (req, res) {
+ res.send(JSON.stringify({ Hello: 'World'}));
 });
 
-
-
-app.listen(8000, () => {
-    console.log('Server is running');
+app.listen(port, function () {
+ console.log('Example app listening on port !');
 });
-
-// Get cats list
-app.route('/api/cats').get((req, res) => {
-    res.send({
-        cats: [{ name: 'lilly' }, { name: 'lucy' }]
-    });
-});
-
-// Get cat data
-app.route('/api/cats/:name').get((req, res) => {
-    const requestedCatName = req.params['name'];
-    res.send({ name: requestedCatName });
-});
-
-// Update cat data
-app.route('/api/cats/:name').put((req, res) => {
-    res.send(200, req.body);
-  });
-
-  // Delete cat data
-  app.route('/api/cats/:name').delete((req, res) => {
-    res.sendStatus(204);
-  });
