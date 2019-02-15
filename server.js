@@ -1,5 +1,5 @@
-
 const express = require('express');
+var port = process.env.PORT || 3000;
 const app = express();
 const cors = require('cors')
 
@@ -15,7 +15,7 @@ app.route('/api/cats').post((req, res) => {
 
 
 
-app.listen(8000, () => {
+app.listen(port, () => {
     console.log('Server is running');
 });
 
